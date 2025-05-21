@@ -27,8 +27,8 @@ class DijkstraAlgorithm(GraphTraversal):
     def run(self, node: Any) -> None:
         # Инициализация расстояний и предшественников
         distances = {node: float('inf') for node in self.G.nodes()}
-        distances[start_node] = 0
-        predecessors = {start_node: None}
+        distances[node] = 0
+        predecessors = {node: None}
         # Множество непросмотренных узлов
         unvisited = set(self.G.nodes()) 
 
