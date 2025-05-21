@@ -2,6 +2,7 @@ from pathlib import Path
 import heapq
 from typing import Any
 from abc import ABC, abstractmethod
+import collections
 
 import networkx as nx
 import numpy as np
@@ -16,7 +17,7 @@ class HuffmanCoding:
         self.tree_root = None
 
     def encode(self, sequence: list[Any]) -> str:
-        frequencies = Counter(sequence)
+        frequencies = collections.Counter(sequence)
         heap = [[weight, [symbol, ""]] for symbol, weight in frequencies.items()]
         heapq.heapify(heap)
 
