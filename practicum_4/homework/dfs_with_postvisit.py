@@ -11,10 +11,8 @@ from src.common import AnyNxGraph
 
 
 class DfsViaLifoQueueWithPostvisit(GraphTraversal):
-    # Скорее всего, проще сделать инициализацию через функцию init
-    def __init__(self, graph: AnyNxGraph):
-        super().__init__()
-        self.graph = graph
+    def __init__(self, G: GraphTraversal):
+        self.G: GraphTraversal = G
         
     def run(self, node: Any) -> None:
         # Инициализация стека с начальным узлом
