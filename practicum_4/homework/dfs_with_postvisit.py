@@ -12,7 +12,7 @@ from src.common import AnyNxGraph
 
 class DfsViaLifoQueueWithPostvisit(GraphTraversal):
     def __init__(self, G: GraphTraversal):
-        self.G: GraphTraversal = G
+        super().__init__(G)
         
     def run(self, node: Any) -> None:
         # Инициализация стека с начальным узлом
@@ -30,7 +30,7 @@ class DfsViaLifoQueueWithPostvisit(GraphTraversal):
                 self.previsit(current_node)
 
                 # Добавить непосещённых соседей в стек
-                for neighbor in self.graph.neighbors(current_node):
+                for neighbor in self.G.neighbors(current_node):
                     if neighbor not in visited:
                         stack.append(neighbor)
                 
