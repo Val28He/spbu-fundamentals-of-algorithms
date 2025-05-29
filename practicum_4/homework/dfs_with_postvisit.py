@@ -30,12 +30,14 @@ class DfsViaLifoQueueWithPostvisit(GraphTraversal):
                 self.previsit(current_node)
 
                 # Добавить непосещённых соседей в стек
-                for neighbor in self.G.neighbors(current_node):
+                for neighbor in reversed(list(self.graph.neighbors(current_node))):
                     if neighbor not in visited:
                         stack.append(neighbor)
                 
-                # После обхода соседей вызвать postvisit
-                self.postvisit(current_node)
+        # После обхода соседей вызвать postvisit
+        for node in visited:
+            self.postvisit(node)
+
 
 
 class DfsViaLifoQueueWithPrinting(DfsViaLifoQueueWithPostvisit):
