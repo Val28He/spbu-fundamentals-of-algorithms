@@ -27,7 +27,7 @@ class MatrixChainMultiplication:
                 raise ValueError(f"Матрицы {idx}-й и {(idx+1)}-й нельзя перемножить.")
     
         # Таблицы для хранения минимальной стоимости и оптимальных разделений
-        m = np.full((n, n), fill_value=10**20, dtype=np.int64)
+        m = np.full((n, n), fill_value=9*(10**18), dtype=np.int64)
         s = np.zeros((n, n), dtype=np.int64)
     
         # Минимальные затраты на перемножение
